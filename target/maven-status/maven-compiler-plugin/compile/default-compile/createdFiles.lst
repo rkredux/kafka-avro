@@ -2,6 +2,7 @@ com/example/Customer$1.class
 org/example/rkredux/avro/generic/SpecificRecord.class
 com/example/Customer.class
 org/example/rkredux/avro/generic/GenericRecord.class
+org/example/rkredux/avro/generic/SchemaEvolution.class
 com/example/CustomerV2$1.class
 com/example/Customer$Builder.class
 com/example/CustomerV2$Builder.class

@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 /** Avro Schema for our customers */
 @org.apache.avro.specific.AvroGenerated
 public class Customer extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4329099212826049740L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Customer\",\"namespace\":\"com.example\",\"doc\":\"Avro Schema for our customers\",\"fields\":[{\"name\":\"first_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"first name of the customer\"},{\"name\":\"last_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"last name of the customer\"},{\"name\":\"age\",\"type\":\"int\",\"doc\":\"age of the customer\"},{\"name\":\"height\",\"type\":\"float\",\"doc\":\"height in cms\"},{\"name\":\"weight\",\"type\":\"float\",\"doc\":\"weight in kilograms\"},{\"name\":\"automated_email\",\"type\":\"boolean\",\"doc\":\"true if the user wants marketing emails\",\"default\":true}]}");
+  private static final long serialVersionUID = -3139121639728462487L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Customer\",\"namespace\":\"com.example\",\"doc\":\"Avro Schema for our customers\",\"fields\":[{\"name\":\"first_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"first name of the customer\"},{\"name\":\"last_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"last name of the customer\"},{\"name\":\"age\",\"type\":\"int\",\"doc\":\"age of the customer\"},{\"name\":\"height\",\"type\":\"float\",\"doc\":\"height in cms\"},{\"name\":\"weight\",\"type\":\"float\",\"doc\":\"weight in kilograms\"},{\"name\":\"phone_number\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"phone number of the customer\",\"default\":null},{\"name\":\"automated_email\",\"type\":\"boolean\",\"doc\":\"true if the user wants marketing emails\",\"default\":true}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -62,6 +62,8 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
    private float height;
   /** weight in kilograms */
    private float weight;
+  /** phone number of the customer */
+   private java.lang.String phone_number;
   /** true if the user wants marketing emails */
    private boolean automated_email;
 
@@ -79,14 +81,16 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
    * @param age age of the customer
    * @param height height in cms
    * @param weight weight in kilograms
+   * @param phone_number phone number of the customer
    * @param automated_email true if the user wants marketing emails
    */
-  public Customer(java.lang.String first_name, java.lang.String last_name, java.lang.Integer age, java.lang.Float height, java.lang.Float weight, java.lang.Boolean automated_email) {
+  public Customer(java.lang.String first_name, java.lang.String last_name, java.lang.Integer age, java.lang.Float height, java.lang.Float weight, java.lang.String phone_number, java.lang.Boolean automated_email) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.age = age;
     this.height = height;
     this.weight = weight;
+    this.phone_number = phone_number;
     this.automated_email = automated_email;
   }
 
@@ -99,7 +103,8 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
     case 2: return age;
     case 3: return height;
     case 4: return weight;
-    case 5: return automated_email;
+    case 5: return phone_number;
+    case 6: return automated_email;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -113,7 +118,8 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
     case 2: age = (java.lang.Integer)value$; break;
     case 3: height = (java.lang.Float)value$; break;
     case 4: weight = (java.lang.Float)value$; break;
-    case 5: automated_email = (java.lang.Boolean)value$; break;
+    case 5: phone_number = (java.lang.String)value$; break;
+    case 6: automated_email = (java.lang.Boolean)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -160,6 +166,15 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
    */
   public java.lang.Float getWeight() {
     return weight;
+  }
+
+
+  /**
+   * Gets the value of the 'phone_number' field.
+   * @return phone number of the customer
+   */
+  public java.lang.String getPhoneNumber() {
+    return phone_number;
   }
 
 
@@ -214,6 +229,8 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
     private float height;
     /** weight in kilograms */
     private float weight;
+    /** phone number of the customer */
+    private java.lang.String phone_number;
     /** true if the user wants marketing emails */
     private boolean automated_email;
 
@@ -248,9 +265,13 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
         this.weight = data().deepCopy(fields()[4].schema(), other.weight);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.automated_email)) {
-        this.automated_email = data().deepCopy(fields()[5].schema(), other.automated_email);
+      if (isValidValue(fields()[5], other.phone_number)) {
+        this.phone_number = data().deepCopy(fields()[5].schema(), other.phone_number);
         fieldSetFlags()[5] = true;
+      }
+      if (isValidValue(fields()[6], other.automated_email)) {
+        this.automated_email = data().deepCopy(fields()[6].schema(), other.automated_email);
+        fieldSetFlags()[6] = true;
       }
     }
 
@@ -280,9 +301,13 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
         this.weight = data().deepCopy(fields()[4].schema(), other.weight);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.automated_email)) {
-        this.automated_email = data().deepCopy(fields()[5].schema(), other.automated_email);
+      if (isValidValue(fields()[5], other.phone_number)) {
+        this.phone_number = data().deepCopy(fields()[5].schema(), other.phone_number);
         fieldSetFlags()[5] = true;
+      }
+      if (isValidValue(fields()[6], other.automated_email)) {
+        this.automated_email = data().deepCopy(fields()[6].schema(), other.automated_email);
+        fieldSetFlags()[6] = true;
       }
     }
 
@@ -499,6 +524,49 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /**
+      * Gets the value of the 'phone_number' field.
+      * phone number of the customer
+      * @return The value.
+      */
+    public java.lang.String getPhoneNumber() {
+      return phone_number;
+    }
+
+    /**
+      * Sets the value of the 'phone_number' field.
+      * phone number of the customer
+      * @param value The value of 'phone_number'.
+      * @return This builder.
+      */
+    public com.example.Customer.Builder setPhoneNumber(java.lang.String value) {
+      validate(fields()[5], value);
+      this.phone_number = value;
+      fieldSetFlags()[5] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'phone_number' field has been set.
+      * phone number of the customer
+      * @return True if the 'phone_number' field has been set, false otherwise.
+      */
+    public boolean hasPhoneNumber() {
+      return fieldSetFlags()[5];
+    }
+
+
+    /**
+      * Clears the value of the 'phone_number' field.
+      * phone number of the customer
+      * @return This builder.
+      */
+    public com.example.Customer.Builder clearPhoneNumber() {
+      phone_number = null;
+      fieldSetFlags()[5] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'automated_email' field.
       * true if the user wants marketing emails
       * @return The value.
@@ -514,9 +582,9 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
       * @return This builder.
       */
     public com.example.Customer.Builder setAutomatedEmail(boolean value) {
-      validate(fields()[5], value);
+      validate(fields()[6], value);
       this.automated_email = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -526,7 +594,7 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
       * @return True if the 'automated_email' field has been set, false otherwise.
       */
     public boolean hasAutomatedEmail() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[6];
     }
 
 
@@ -536,7 +604,7 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
       * @return This builder.
       */
     public com.example.Customer.Builder clearAutomatedEmail() {
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -550,7 +618,8 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
         record.age = fieldSetFlags()[2] ? this.age : (java.lang.Integer) defaultValue(fields()[2]);
         record.height = fieldSetFlags()[3] ? this.height : (java.lang.Float) defaultValue(fields()[3]);
         record.weight = fieldSetFlags()[4] ? this.weight : (java.lang.Float) defaultValue(fields()[4]);
-        record.automated_email = fieldSetFlags()[5] ? this.automated_email : (java.lang.Boolean) defaultValue(fields()[5]);
+        record.phone_number = fieldSetFlags()[5] ? this.phone_number : (java.lang.String) defaultValue(fields()[5]);
+        record.automated_email = fieldSetFlags()[6] ? this.automated_email : (java.lang.Boolean) defaultValue(fields()[6]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

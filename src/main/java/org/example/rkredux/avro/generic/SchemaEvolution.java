@@ -22,6 +22,7 @@ public class SchemaEvolution{
         builder.setHeight(178.9f);
         builder.setAge(35);
         builder.setAutomatedEmail(false);
+        builder.setPhoneNumber("999-999-9999");
         final Customer customerV1record = builder.build();
 
         DatumWriter<Customer> customerV1DatumWriter = new SpecificDatumWriter<>(Customer.class);

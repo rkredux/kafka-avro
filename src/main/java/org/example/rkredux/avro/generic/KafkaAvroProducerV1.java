@@ -26,9 +26,9 @@ public class KafkaAvroProducerV1 {
 
         KafkaProducer<String, Customer> kafkaProducer = new  KafkaProducer<>(properties);
 
-        String key = "aa85773";
+        String key = "aa86773";
         Customer.Builder builder = Customer.newBuilder()
-                .setFirstName("Rahul")
+                .setFirstName("Chekker")
                 .setLastName("Blake")
                 .setAge(34)
                 .setHeight(178f)
